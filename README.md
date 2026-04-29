@@ -77,15 +77,15 @@ python mil_exp.py
 
 Update rule:
 
-\[
+$$
 x_{t+1} = \Xi \cdot \mathrm{softmax}(\beta \cdot \Xi^\top x_t)
-\]
+$$
 
 Energy:
 
-\[
+$$
 E(x) = -\log \sum_j \exp(\beta \cdot \xi_j^\top x) + \tfrac{1}{2}\|x\|^2
-\]
+$$
 
 ---
 
@@ -93,15 +93,15 @@ E(x) = -\log \sum_j \exp(\beta \cdot \xi_j^\top x) + \tfrac{1}{2}\|x\|^2
 
 Feature map:
 
-\[
+$$
 F_P(\varphi) = \bigl[\sqrt{\varphi^2 + \sin\varphi + 0.5},\ \sqrt{\varphi^2 + \cos\varphi + 0.5}\bigr]
-\]
+$$
 
 Local field:
 
-\[
+$$
 h_P(\varphi) = 2\varphi + 0.5(\cos\varphi - \sin\varphi)
-\]
+$$
 
 ---
 
@@ -109,15 +109,15 @@ h_P(\varphi) = 2\varphi + 0.5(\cos\varphi - \sin\varphi)
 
 Feature map:
 
-\[
+$$
 F_S(\varphi) = \bigl[\sqrt{\varphi^2 + \tanh\varphi + 1},\ \sqrt{\varphi^2 + 1}\bigr]
-\]
+$$
 
 Local field:
 
-\[
+$$
 h_S(\varphi) = 2\varphi + 0.5\,\mathrm{sech}^2(\varphi)
-\]
+$$
 
 ---
 
@@ -127,15 +127,15 @@ Based on Hoover et al. (NeurIPS 2024). Uses an L2-distance kernel with pattern-s
 
 Energy:
 
-\[
+$$
 E(x;\,\Xi) = -\tfrac{1}{\beta}\,\mathrm{logsumexp}\!\left(-\tfrac{\beta}{2}\|x - \xi_j\|^2\right)
-\]
+$$
 
 Update rule, where \(\Xi_c = \Xi - \bar{\Xi}\) and \(x_c = x - \bar{\Xi}\):
 
-\[
+$$
 x_{t+1} = \Xi \cdot \mathrm{softmax}(\beta \cdot \Xi_c^\top x_c)
-\]
+$$
 
 ---
 
@@ -143,15 +143,15 @@ x_{t+1} = \Xi \cdot \mathrm{softmax}(\beta \cdot \Xi_c^\top x_c)
 
 Learnable kernel \(K(u,v) = (Wu)^\top(Wv)\) with \(W \in \mathbb{R}^{d\times d}\) trained via uniformity loss:
 
-\[
+$$
 \mathcal{L}_{\mathrm{uniform}}(X) = \log\!\left(\mathrm{mean}\,\exp(-t\|x_i - x_j\|^2)\right)
-\]
+$$
 
 Update rule:
 
-\[
+$$
 x_{t+1} = \Xi \cdot \mathrm{softmax}\!\left(\beta \cdot (W\Xi)^\top(Wx)\right)
-\]
+$$
 
 ---
 
@@ -159,9 +159,9 @@ x_{t+1} = \Xi \cdot \mathrm{softmax}\!\left(\beta \cdot (W\Xi)^\top(Wx)\right)
 
 Cosine-sine embedding applied after \([\min,\max]\) rescaling with scaling factor \(n=100\):
 
-\[
+$$
 \varphi_{\mathrm{scaled}} = \frac{\varphi - \min(\varphi)}{\max(\varphi) - \min(\varphi)} \cdot n, \qquad F_C(\varphi) = [\cos\varphi,\ \sin\varphi]
-\]
+$$
 
 ---
 
@@ -171,21 +171,21 @@ Cosine-sine embedding applied after \([\min,\max]\) rescaling with scaling facto
 
 **Gating (`gating_models.py`)** — Wraps standard update rules with a learned gate:
 
-\[
+$$
 g = \sigma(\gamma \cdot z), \qquad x_{t+1} = (1-g)\,x_t + g\,x_{\mathrm{prop}}
-\]
+$$
 
-\[
+$$
 z_{t+1} = (1-\lambda)\,z_t + \lambda\,\phi(Wx_t)
-\]
+$$
 
 Applied to MHN, U-Hop, S-Hop; C-Hop is tested without gating as a reference.
 
 **SSD Metric (`ssd_models.py`)** — Follows the U-Hop official SSM protocol. Metric:
 
-\[
+$$
 \mathrm{SSD} = \sum\!\left(\mathrm{clamp}(x,0,1) - \mathrm{clamp}(y,0,1)\right)^2
-\]
+$$
 
 N range: \([10, 20, 30, 50, 100, 200, 500]\). Query: Gaussian noise or dropout mask.
 
