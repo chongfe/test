@@ -84,7 +84,7 @@ $$
 Energy:
 
 $$
-E(\xi) = \tfrac{1}{2}\|\xi\|^2 + \tfrac{1}{\beta}\!\left(\log N + \tfrac{D}{2}\right) - \log\sum_j \exp(\beta \cdot x_j^\top \xi)
+E(\xi) = \tfrac{1}{2}\|\xi\|^2 + \tfrac{1}{\beta}\left(\log N + \tfrac{D}{2}\right) - \log\sum_j \exp(\beta \cdot x_j^\top \xi)
 $$
 
 ---
@@ -128,7 +128,7 @@ Based on Hoover et al. (NeurIPS 2024). Uses an L2-distance kernel with pattern-s
 Energy:
 
 $$
-E_H(x) = -\frac{1}{\beta}\,\mathrm{lse}\!\left(-\frac{\beta}{2}\|x - \xi_j\|^2\right)
+E_H(x) = -\frac{1}{\beta}\,\mathrm{lse}\left(-\frac{\beta}{2}\|x - \xi_j\|^2\right)
 $$
 
 Update rule, where $\Xi_c = \Xi - \bar{\Xi}$ and $x_c = x - \bar{\Xi}$:
@@ -144,13 +144,13 @@ $$
 Learnable kernel $K(u,v) = (Wu)^\top(Wv)$ with $W \in \mathbb{R}^{d\times d}$ trained via uniformity loss:
 
 $$
-\mathcal{L}_{\mathrm{uniform}}(X) = \log\!\left(\mathrm{mean}_{i \neq j}\,\exp(-t\|x_i - x_j\|^2)\right)
+\mathcal{L}_{\mathrm{uniform}}(X) = \log\left(\mathrm{mean}_{i \neq j}\,\exp(-t\|x_i - x_j\|^2)\right)
 $$
 
 Update rule:
 
 $$
-x_{t+1} = \Xi \cdot \mathrm{softmax}\!\left(\beta \cdot (W\Xi)^\top(Wx)\right)
+x_{t+1} = \Xi \cdot \mathrm{softmax}\left(\beta \cdot (W\Xi)^\top(Wx)\right)
 $$
 
 ---
@@ -184,7 +184,7 @@ Applied to MHN, U-Hop, S-Hop; C-Hop is tested without gating as a reference.
 **SSD Metric (`ssd_models.py`)** — Follows the U-Hop official SSM protocol. Metric:
 
 $$
-\mathrm{SSD}(x,\hat{x}) = \sum_{i=1}^{d}\!\left(\mathrm{clamp}(x_i,0,1) - \mathrm{clamp}(\hat{x}_i,0,1)\right)^2
+\mathrm{SSD}(x,\hat{x}) = \sum_{i=1}^{d}\left(\mathrm{clamp}(x_i,0,1) - \mathrm{clamp}(\hat{x}_i,0,1)\right)^2
 $$
 
 N range: $[10, 20, 30, 50, 100, 200, 500]$. Query: Gaussian noise or dropout mask.
