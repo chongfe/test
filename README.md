@@ -141,7 +141,7 @@ $$
 
 ### U-Hop
 
-Learnable kernel \(K(u,v) = (Wu)^\top(Wv)\) with \(W \in \mathbb{R}^{d\times d}\) trained via uniformity loss:
+Learnable kernel $K(u,v) = (Wu)^\top(Wv)$ with $W \in \mathbb{R}^{d\times d}$ trained via uniformity loss:
 
 $$
 \mathcal{L}_{\mathrm{uniform}}(X) = \log\!\left(\mathrm{mean}\,\exp(-t\|x_i - x_j\|^2)\right)
@@ -157,7 +157,7 @@ $$
 
 ### C-Hop
 
-Cosine-sine embedding applied after \([\min,\max]\) rescaling with scaling factor \(n=100\):
+Cosine-sine embedding applied after $[\min,\max]$ rescaling with scaling factor $n=100$:
 
 $$
 \varphi_{\mathrm{scaled}} = \frac{\varphi - \min(\varphi)}{\max(\varphi) - \min(\varphi)} \cdot n, \qquad F_C(\varphi) = [\cos\varphi,\ \sin\varphi]
@@ -187,7 +187,7 @@ $$
 \mathrm{SSD} = \sum\!\left(\mathrm{clamp}(x,0,1) - \mathrm{clamp}(y,0,1)\right)^2
 $$
 
-N range: \([10, 20, 30, 50, 100, 200, 500]\). Query: Gaussian noise or dropout mask.
+N range: $[10, 20, 30, 50, 100, 200, 500]$. Query: Gaussian noise or dropout mask.
 
 ## Hyperparameters
 
@@ -233,9 +233,9 @@ N range: \([10, 20, 30, 50, 100, 200, 500]\). Query: Gaussian noise or dropout m
 
 ## Implementation Notes
 
-**Pattern-space centering** — H-Hop centers both stored patterns and the query: \(\Xi_c = \Xi - \bar{\Xi}\), \(x_c = x - \bar{\Xi}\). Other methods operate in the original feature space.
+**Pattern-space centering** — H-Hop centers both stored patterns and the query: $\Xi_c = \Xi - \bar{\Xi}$, $x_c = x - \bar{\Xi}$. Other methods operate in the original feature space.
 
-**Newton iterations** — P-Hop and S-Hop invert the local field \(h^{-1}\) via Newton's method. Default: 20 iterations for capacity experiments, 10 for classification.
+**Newton iterations** — P-Hop and S-Hop invert the local field $h^{-1}$ via Newton's method. Default: 20 iterations for capacity experiments, 10 for classification.
 
 **Jacobian coupling** — P-Hop and S-Hop include Jacobian terms in the "values" tensor to ensure correct gradient flow through the phase kernel.
 
