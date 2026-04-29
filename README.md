@@ -116,7 +116,7 @@ $$
 Local field:
 
 $$
-h_S(\phi_k) = 2\phi_k + \tfrac{1}{2}\,\mathrm{sech}^2(\phi_k)
+h_S(\phi_k) = 2\phi_k + \tfrac{1}{2} \mathrm{sech}^2(\phi_k)
 $$
 
 ---
@@ -128,7 +128,7 @@ Based on Hoover et al. (NeurIPS 2024). Uses an L2-distance kernel with pattern-s
 Energy:
 
 $$
-E_H(x) = -\frac{1}{\beta}\,\mathrm{lse}\left(-\frac{\beta}{2}\|x - \xi_j\|^2\right)
+E_H(x) = -\frac{1}{\beta} \mathrm{lse}\left(-\frac{\beta}{2}\|x - \xi_j\|^2\right)
 $$
 
 Update rule, where $\Xi_c = \Xi - \bar{\Xi}$ and $x_c = x - \bar{\Xi}$:
@@ -144,7 +144,7 @@ $$
 Learnable kernel $K(u,v) = (Wu)^\top(Wv)$ with $W \in \mathbb{R}^{d\times d}$ trained via uniformity loss:
 
 $$
-\mathcal{L}_{\mathrm{uniform}}(X) = \log\left(\mathrm{mean}_{i \neq j}\,\exp(-t\|x_i - x_j\|^2)\right)
+\mathcal{L}_{\mathrm{uniform}}(X) = \log\left(\mathrm{mean}_{i \neq j} \exp(-t\|x_i - x_j\|^2)\right)
 $$
 
 Update rule:
@@ -172,11 +172,11 @@ $$
 **Gating (`gating_models.py`)** — Wraps standard update rules with a learned gate:
 
 $$
-g = \sigma(\gamma \cdot z), \qquad x_{t+1} = (1-g)\,x_t + g\,x_{\mathrm{prop}}
+g = \sigma(\gamma \cdot z), \qquad x_{t+1} = (1-g) x_t + g x_{\mathrm{prop}}
 $$
 
 $$
-z_{t+1} = (1-\lambda)\,z_t + \lambda\,\phi(Wx_t)
+z_{t+1} = (1-\lambda) z_t + \lambda \phi(Wx_t)
 $$
 
 Applied to MHN, U-Hop, S-Hop; C-Hop is tested without gating as a reference.
@@ -252,4 +252,3 @@ TinyImageNet is downloaded automatically on first run.
 ## Citation
 
 If you use this code, please cite our paper.
-
