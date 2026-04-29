@@ -131,7 +131,7 @@ $$
 E(x;\,\Xi) = -\tfrac{1}{\beta}\,\mathrm{logsumexp}\!\left(-\tfrac{\beta}{2}\|x - \xi_j\|^2\right)
 $$
 
-Update rule, where \(\Xi_c = \Xi - \bar{\Xi}\) and \(x_c = x - \bar{\Xi}\):
+Update rule, where $\Xi_c = \Xi - \bar{\Xi}$ and $x_c = x - \bar{\Xi}$:
 
 $$
 x_{t+1} = \Xi \cdot \mathrm{softmax}(\beta \cdot \Xi_c^\top x_c)
