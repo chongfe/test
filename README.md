@@ -94,13 +94,13 @@ $$
 Feature map (component-wise for each $k$):
 
 $$
-F_P(\phi_k) = \left[\sqrt{\phi_k^2 + \sin\phi_k + 0.5},\ \sqrt{\phi_k^2 + \cos\phi_k + 0.5}\right]
+F_P(\varphi_k) = \left[\sqrt{\varphi_k^2 + \sin\varphi_k + 0.5},\ \sqrt{\varphi_k^2 + \cos\varphi_k + 0.5}\right]
 $$
 
 Local field:
 
 $$
-h_P(\phi_k) = 2\phi_k + \tfrac{1}{2}(\cos\phi_k - \sin\phi_k)
+h_P(\varphi_k) = 2\varphi_k + \tfrac{1}{2}(\cos\varphi_k - \sin\varphi_k)
 $$
 
 ---
@@ -110,13 +110,13 @@ $$
 Feature map (component-wise for each $k$):
 
 $$
-F_S(\phi_k) = \left[\sqrt{\phi_k^2 + \tanh\phi_k + 1},\ \sqrt{\phi_k^2 + 1}\right]
+F_S(\varphi_k) = \left[\sqrt{\varphi_k^2 + \tanh\varphi_k + 1},\ \sqrt{\varphi_k^2 + 1}\right]
 $$
 
 Local field:
 
 $$
-h_S(\phi_k) = 2\phi_k + \tfrac{1}{2} \mathrm{sech}^2(\phi_k)
+h_S(\varphi_k) = 2\varphi_k + \tfrac{1}{2} \mathrm{sech}^2(\varphi_k)
 $$
 
 ---
